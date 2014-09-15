@@ -1,34 +1,27 @@
 #!/bin/bash
-#This is the script for the marker
+#Based on a script created by Joel Fenwick
 
 red='\x1B[0;31m'
 green='\x1B[0;32m'
 NC='\x1B[0m' # No Color
 
-if [ $# -lt 5 ]
+if [ $# -lt 3 ]
 then
-    echo "Usage: $0 binname testdir testscript output_directory name"
+    echo "Usage: $0 binname tests_dir name"
     exit 1
 fi
 
-
-
 BINNAME=$1
-TESTD=$2
-TESTF=$3
-dirn=$4
-DISPLAY_NAME=$5
+TESTD=$2/tests
+DISPLAY_NAME=$3
+TESTF="$2/tests_$DISPLAY_NAME.txt"
+dirn="${DISPLAY_NAME}_test_output"
 
 rm -rf $dirn
 mkdir $dirn
 
 touch $dirn/locked
 chmod a-w $dirn/locked
-
-if [ ! -e tests ]
-then
-    ln -s $TESTD tests
-fi
 
 RESULT=""
 
@@ -109,7 +102,7 @@ END
     fi
     echo -e "$number ${green}PASS${NC} $desc"
     let passed=passed+1
-done < $3
+done < $TESTF
 
 if [ $passed == $number ]
 then
