@@ -10,7 +10,7 @@ No tests currently exist for the hub section of the assignment, these will be ad
 Usage:
 -----------
 
-Tests are run be executing tscript.sh, this will result in terminal output displaying test PASS/FAIL, a folder with test output will also be created.
+Tests are run by executing tscript.sh, this will result in terminal output displaying a list of tests run and PASS/FAIL status, a folder with test output files will also be created.
 
 __tscript.sh arguments:__ binname tests_dir name
 
