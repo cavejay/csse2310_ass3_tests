@@ -7,40 +7,40 @@
 1|empty|dash|incorrect_args.out|||x x x x|Incorrect args 4
 
 #Player count
-2|empty|dash|invalid_player_count.out|||A -1|Player count -1
-2|empty|dash|invalid_player_count.out|||A 0|Player count 0
-2|empty|dash|invalid_player_count.out|||A 1|Player count 1
-3|empty|dash|invalid_player_id.out|||x 2|Player count 2
-3|empty|dash|invalid_player_id.out|||x 3|Player count 3
-3|empty|dash|invalid_player_id.out|||x 4|Player count 4
-2|empty|dash|invalid_player_count.out|||A 5|Player count 5
-2|empty|dash|invalid_player_count.out|||A 3biscuit|Player count 3biscuit
-2|empty|dash|invalid_player_count.out|||A 3b3|Player count 3b3
+2|empty|dash|invalid_player_count.out|||-1 A|Player count -1
+2|empty|dash|invalid_player_count.out|||0 A|Player count 0
+2|empty|dash|invalid_player_count.out|||1 A|Player count 1
+3|empty|dash|invalid_player_id.out|||2 x|Player count 2
+3|empty|dash|invalid_player_id.out|||3 x|Player count 3
+3|empty|dash|invalid_player_id.out|||4 x|Player count 4
+2|empty|dash|invalid_player_count.out|||5 A|Player count 5
+2|empty|dash|invalid_player_count.out|||3biscuit A|Player count 3biscuit
+2|empty|dash|invalid_player_count.out|||3b3 A|Player count 3b3
 
 #Player ID
-3|empty|dash|invalid_player_id.out|||a 3|Player ID a
-3|empty|dash|invalid_player_id.out|||b 3|Player ID b
-3|empty|dash|invalid_player_id.out|||c 3|Player ID c
-3|empty|dash|invalid_player_id.out|||d 3|Player ID d
-3|empty|dash|invalid_player_id.out|||AA 3|Player ID AA
-3|empty|dash|invalid_player_id.out|||BBBB 3|Player ID BBBB
-3|empty|dash|invalid_player_id.out|||D 3|Player ID D
-3|empty|dash|invalid_player_id.out|||D 2|Player ID C
-4|empty|dash|loss_of_hub.out|||A 3|Player ID A
-4|empty|dash|loss_of_hub.out|||B 3|Player ID B
-4|empty|dash|loss_of_hub.out|||C 3|Player ID C
-4|empty|dash|loss_of_hub.out|||D 4|Player ID D
+3|empty|dash|invalid_player_id.out|||3 a|Player ID a
+3|empty|dash|invalid_player_id.out|||3 b|Player ID b
+3|empty|dash|invalid_player_id.out|||3 c|Player ID c
+3|empty|dash|invalid_player_id.out|||3 d|Player ID d
+3|empty|dash|invalid_player_id.out|||3 AA|Player ID AA
+3|empty|dash|invalid_player_id.out|||3 BBBB|Player ID BBBB
+3|empty|dash|invalid_player_id.out|||3 D|Player ID D
+3|empty|dash|invalid_player_id.out|||2 C|Player ID C
+4|empty|dash|loss_of_hub.out|||3 A|Player ID A
+4|empty|dash|loss_of_hub.out|||3 B|Player ID B
+4|empty|dash|loss_of_hub.out|||3 C|Player ID C
+4|empty|dash|loss_of_hub.out|||4 D|Player ID D
 
 #Gameover
-0|gameover.in|dash|gameover.out|||A 3|Gameover
-5|gameove.in|dash|gameove.out|||A 3|Gameove
-5|gameover_no_nl.in|dash|gameover_no_nl.out|||A 3|Gameover no new line
-5|gameover_space.in|dash|gameover_space.out|||A 3|Gameover<space>
+0|gameover.in|dash|gameover.out|||3 A|Gameover
+5|gameove.in|dash|gameove.out|||3 A|Gameove
+5|gameover_no_nl.in|dash|gameover_no_nl.out|||3 A|Gameover no new line
+5|gameover_space.in|dash|gameover_space.out|||3 A|Gameover<space>
 
 #New round
-0|new_round.in|dash|new_round.out|||B 4|New Round
-5|new_round_card_0.in|dash|new_round_card_0.out|||B 4|New round card 0
-5|new_round_card_x.in|dash|new_round_card_x.out|||B 4|New round card x
-5|new_round_card_9.in|dash|new_round_card_9.out|||B 4|New round card 9
-5|new_round_card_111.in|dash|new_round_card_111.out|||B 4|New round card 111
-5|new_round_no_card.in|dash|new_round_no_card.out|||B 4|New round card no card
+0|new_round.in|dash|new_round.out|||4 B|New Round
+5|new_round_card_0.in|dash|new_round_card_0.out|||4 B|New round card 0
+5|new_round_card_x.in|dash|new_round_card_x.out|||4 B|New round card x
+5|new_round_card_9.in|dash|new_round_card_9.out|||4 B|New round card 9
+5|new_round_card_111.in|dash|new_round_card_111.out|||4 B|New round card 111
+5|new_round_no_card.in|dash|new_round_no_card.out|||4 B|New round card no card
