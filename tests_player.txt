@@ -24,10 +24,12 @@
 3|empty|dash|invalid_player_id.out|||d 3|Player ID d
 3|empty|dash|invalid_player_id.out|||AA 3|Player ID AA
 3|empty|dash|invalid_player_id.out|||BBBB 3|Player ID BBBB
+3|empty|dash|invalid_player_id.out|||D 3|Player ID D
+3|empty|dash|invalid_player_id.out|||D 2|Player ID C
 4|empty|dash|loss_of_hub.out|||A 3|Player ID A
 4|empty|dash|loss_of_hub.out|||B 3|Player ID B
 4|empty|dash|loss_of_hub.out|||C 3|Player ID C
-4|empty|dash|loss_of_hub.out|||D 3|Player ID D
+4|empty|dash|loss_of_hub.out|||D 4|Player ID D
 
 #Gameover
 0|gameover.in|dash|gameover.out|||A 3|Gameover
