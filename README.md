@@ -10,7 +10,9 @@ No tests currently exist for the hub section of the assignment, these will be ad
 Setup:
 ----------
 
-To setup the tests into moss run git clone <repo-URL> <folder-to-put-it-in>
+To setup the tests into moss run the following:
+
+__git__ clone  &lt;repo-URL&#62;  &lt;folder-to-put-it-in&#62;
 
 Usage:
 -----------
