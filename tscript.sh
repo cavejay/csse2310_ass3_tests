@@ -14,7 +14,7 @@ fi
 BINNAME=$1
 TESTD=$2/tests
 DISPLAY_NAME=$3
-TESTF="$2/tests_$DISPLAY_NAME.txt"
+TESTF="$2/tests_$DISPLAY_NAME"
 dirn="${DISPLAY_NAME}_test_output"
 
 rm -rf $dirn
