@@ -52,3 +52,10 @@
 5|new_round_card_9.in|dash|new_round_card_9.err|||4 B|Replace card 9
 5|new_round_card_111.in|dash|new_round_card_111.err|||4 B|Replace card 111
 5|new_round_no_card.in|dash|new_round_no_card.err|||4 B|Replace card no card
+
+#This Happened
+5|thishappened_no_effect.in|dash|thishappened_no_effect.err|||2 B|1 turn
+5|thishappened_an_effect.in|dash|thishappened_an_effect.err|||3 C|2 turns
+
+#Your Turn
+
