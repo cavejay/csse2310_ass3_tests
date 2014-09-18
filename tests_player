@@ -45,6 +45,16 @@
 5|new_round_card_111.in|dash|new_round_card_111.err|||4 B|New round card 111
 5|new_round_no_card.in|dash|new_round_no_card.err|||4 B|New round card no card
 
+#Scores
+0|scores_valid.in|dash|scores_valid.err|||4 B|Scores 1 2 3 4
+5|scores_empty.in|dash|scores_empty.err|||4 B|Scores<space>
+5|scores_space.in|dash|scores_space.err|||4 B|Scores 1 2 3 4<space>
+5|scores_too_high.in|dash|scores_too_high.err|||4 B|Scores 1 2 3 5
+5|scores_1111111.in|dash|scores_1111111.err|||4 B|Scores 1111111
+5|scores_valid.in|dash|scores_too_many.err|||3 B|Scores too many
+5|scores_too_few.in|dash|scores_too_few.err|||4 B|Scores too few
+0|scores_status_update.in|dash|scores_status_update.err|||4 B|Scores status update
+
 #Replace
 0|new_round.in|dash|new_round.err|||4 B|Replace Card
 5|new_round_card_0.in|dash|new_round_card_0.err|||4 B|Replace card 0
@@ -54,8 +64,8 @@
 5|new_round_no_card.in|dash|new_round_no_card.err|||4 B|Replace card no card
 
 #This Happened
-5|thishappened_no_effect.in|dash|thishappened_no_effect.err|||2 B|1 turn
+4|thishappened_no_effect.in|dash|thishappened_no_effect.err|||2 B|1 turn
 5|thishappened_an_effect.in|dash|thishappened_an_effect.err|||3 C|2 turns
 
 #Your Turn
-
+5|yourturn_567.in|yourturn_567.in|yourturn_567.err|||2 B| 7,5 and 6 test
