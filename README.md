@@ -7,6 +7,13 @@ Please feel free to collaborate and submit a pull request if you add your own te
 
 No tests currently exist for the hub section of the assignment, these will be added when I (or others) start that component.
 
+Setup:
+----------
+
+To setup the tests into moss run the following:
+
+__git__ clone  &lt;repo-URL&#62;  &lt;folder-to-put-it-in&#62;
+
 Usage:
 -----------
 
