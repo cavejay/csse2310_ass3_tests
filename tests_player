@@ -64,8 +64,8 @@
 5|new_round_no_card.in|dash|new_round_no_card.err|||4 B|Replace card no card
 
 #This Happened
-4|thishappened_no_effect.in|dash|thishappened_no_effect.err|||2 B|1 turn
-5|thishappened_an_effect.in|dash|thishappened_an_effect.err|||3 C|2 turns
+#4|thishappened_no_effect.in|dash|thishappened_no_effect.err|||2 B|1 turn
+#5|thishappened_an_effect.in|dash|thishappened_an_effect.err|||3 C|2 turns
 
 #Your Turn
-5|yourturn_567.in|yourturn_567.out|yourturn_567.err|||2 B| 7,5 and 6 test
+#5|yourturn_567.in|yourturn_567.out|yourturn_567.err|||2 B| 7,5 and 6 test
