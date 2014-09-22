@@ -12,8 +12,8 @@ then
 fi
 
 BINNAME=$1
-TESTD=$2/tests
 DISPLAY_NAME=$3
+TESTD=$2/${DISPLAY_NAME}_tests
 TESTF="$2/tests_$DISPLAY_NAME"
 dirn="${DISPLAY_NAME}_test_output"
 
@@ -44,6 +44,8 @@ do
     let number=number+1
     details=`echo $line | cut -f1,2,3,4,5,6 -d\| | tr \| " "`
     args=`echo $line | cut -f7 -d\| | tr \| " "`
+    #Replace TESTD token
+    args=${args/TESTD/$TESTD}
     desc=`echo $line | cut -f8 -d\|`
     read retval inp out err f1 f2<<END
 $details
