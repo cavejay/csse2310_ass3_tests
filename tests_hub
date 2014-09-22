@@ -1,0 +1,20 @@
+# retval|input|expected_output|expected_err|||args
+
+#Argument number
+1|empty|empty|incorrect_args.err||||Incorrect args 0
+1|empty|empty|incorrect_args.err|||x|Incorrect args 1
+1|empty|empty|incorrect_args.err|||x x|Incorrect args 2
+2|empty|empty|bad_deck_name.err|||x x x|Args 3
+2|empty|empty|bad_deck_name.err|||x x x x|Args 4
+2|empty|empty|bad_deck_name.err|||x x x x x|Args 5
+1|empty|empty|incorrect_args.err|||x x x x x x|Incorrect args 6
+1|empty|empty|incorrect_args.err|||x x x x x x x|Incorrect args 7
+
+#Deck file
+2|empty|empty|bad_deck_name.err|||x x x|Invalid deck filename
+3|empty|empty|invalid_deck.err|||TESTD/short.deck x x|Short deck file
+3|empty|empty|invalid_deck.err|||TESTD/long.deck x x|Long deck file
+3|empty|empty|invalid_deck.err|||TESTD/no_nl.deck x x|Deck missing nl
+3|empty|empty|invalid_deck.err|||TESTD/invalid_char.deck x x|Deck with invalid char
+3|empty|empty|invalid_deck.err|||TESTD/imbalanced.deck x x|Deck with wrong card distribution
+4|empty|empty|subprocess.err|||TESTD/valid.deck x x|Valid deck file
