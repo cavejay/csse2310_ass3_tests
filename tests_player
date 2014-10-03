@@ -1,71 +1,69 @@
-# retval|input|expected_errput|expected_err|||args
+# retval|input|expected_output|expected_err|||args
 
 #Argument number
-1|empty|dash|incorrect_args.err||||Incorrect args 0
-1|empty|dash|incorrect_args.err|||x|Incorrect args 1
-1|empty|dash|incorrect_args.err|||x x x|Incorrect args 3
-1|empty|dash|incorrect_args.err|||x x x x|Incorrect args 4
+1|empty|dash|incorrect_args.out||||Incorrect args 0
+1|empty|dash|incorrect_args.out|||x|Incorrect args 1
+1|empty|dash|incorrect_args.out|||x x x|Incorrect args 3
+1|empty|dash|incorrect_args.out|||x x x x|Incorrect args 4
 
 #Player count
-2|empty|dash|invalid_player_count.err|||-1 A|Player count -1
-2|empty|dash|invalid_player_count.err|||0 A|Player count 0
-2|empty|dash|invalid_player_count.err|||1 A|Player count 1
-3|empty|dash|invalid_player_id.err|||2 x|Player count 2
-3|empty|dash|invalid_player_id.err|||3 x|Player count 3
-3|empty|dash|invalid_player_id.err|||4 x|Player count 4
-2|empty|dash|invalid_player_count.err|||5 A|Player count 5
-2|empty|dash|invalid_player_count.err|||3biscuit A|Player count 3biscuit
-2|empty|dash|invalid_player_count.err|||3b3 A|Player count 3b3
+2|empty|dash|invalid_player_count.out|||-1 A|Player count -1
+2|empty|dash|invalid_player_count.out|||0 A|Player count 0
+2|empty|dash|invalid_player_count.out|||1 A|Player count 1
+3|empty|dash|invalid_player_id.out|||2 x|Player count 2
+3|empty|dash|invalid_player_id.out|||3 x|Player count 3
+3|empty|dash|invalid_player_id.out|||4 x|Player count 4
+2|empty|dash|invalid_player_count.out|||5 A|Player count 5
+2|empty|dash|invalid_player_count.out|||3biscuit A|Player count 3biscuit
+2|empty|dash|invalid_player_count.out|||3b3 A|Player count 3b3
 
 #Player ID
-3|empty|dash|invalid_player_id.err|||3 a|Player ID a
-3|empty|dash|invalid_player_id.err|||3 b|Player ID b
-3|empty|dash|invalid_player_id.err|||3 c|Player ID c
-3|empty|dash|invalid_player_id.err|||3 d|Player ID d
-3|empty|dash|invalid_player_id.err|||3 AA|Player ID AA
-3|empty|dash|invalid_player_id.err|||3 BBBB|Player ID BBBB
-3|empty|dash|invalid_player_id.err|||3 D|Player ID D
-3|empty|dash|invalid_player_id.err|||2 C|Player ID C
-4|empty|dash|loss_of_hub.err|||3 A|Player ID A
-4|empty|dash|loss_of_hub.err|||3 B|Player ID B
-4|empty|dash|loss_of_hub.err|||3 C|Player ID C
-4|empty|dash|loss_of_hub.err|||4 D|Player ID D
+3|empty|dash|invalid_player_id.out|||3 a|Player ID a
+3|empty|dash|invalid_player_id.out|||3 b|Player ID b
+3|empty|dash|invalid_player_id.out|||3 c|Player ID c
+3|empty|dash|invalid_player_id.out|||3 d|Player ID d
+3|empty|dash|invalid_player_id.out|||3 AA|Player ID AA
+3|empty|dash|invalid_player_id.out|||3 BBBB|Player ID BBBB
+3|empty|dash|invalid_player_id.out|||3 D|Player ID D
+3|empty|dash|invalid_player_id.out|||2 C|Player ID C
+4|empty|dash|loss_of_hub.out|||3 A|Player ID A
+4|empty|dash|loss_of_hub.out|||3 B|Player ID B
+4|empty|dash|loss_of_hub.out|||3 C|Player ID C
+4|empty|dash|loss_of_hub.out|||4 D|Player ID D
 
 #Gameover
-0|gameover.in|dash|gameover.err|||3 A|Gameover
-5|gameove.in|dash|gameove.err|||3 A|Gameove
-5|gameover_no_nl.in|dash|gameover_no_nl.err|||3 A|Gameover no new line
-5|gameover_space.in|dash|gameover_space.err|||3 A|Gameover<space>
+0|gameover.in|dash|gameover.out|||3 A|Gameover
+5|gameove.in|dash|gameove.out|||3 A|Gameove
+5|gameover_no_nl.in|dash|gameover_no_nl.out|||3 A|Gameover no new line
+5|gameover_space.in|dash|gameover_space.out|||3 A|Gameover<space>
 
 #New round
-0|new_round.in|dash|new_round.err|||4 B|New Round
-5|new_round_card_0.in|dash|new_round_card_0.err|||4 B|New round card 0
-5|new_round_card_x.in|dash|new_round_card_x.err|||4 B|New round card x
-5|new_round_card_9.in|dash|new_round_card_9.err|||4 B|New round card 9
-5|new_round_card_111.in|dash|new_round_card_111.err|||4 B|New round card 111
-5|new_round_no_card.in|dash|new_round_no_card.err|||4 B|New round card no card
+0|new_round.in|dash|new_round.out|||4 B|New Round
+5|new_round_card_0.in|dash|new_round_card_0.out|||4 B|New round card 0
+5|new_round_card_x.in|dash|new_round_card_x.out|||4 B|New round card x
+5|new_round_card_9.in|dash|new_round_card_9.out|||4 B|New round card 9
+5|new_round_card_111.in|dash|new_round_card_111.out|||4 B|New round card 111
+5|new_round_no_card.in|dash|new_round_no_card.out|||4 B|New round card no card
 
 #Scores
-0|scores_valid.in|dash|scores_valid.err|||4 B|Scores 1 2 3 4
-5|scores_empty.in|dash|scores_empty.err|||4 B|Scores<space>
-5|scores_space.in|dash|scores_space.err|||4 B|Scores 1 2 3 4<space>
-5|scores_too_high.in|dash|scores_too_high.err|||4 B|Scores 1 2 3 5
-5|scores_1111111.in|dash|scores_1111111.err|||4 B|Scores 1111111
-5|scores_valid.in|dash|scores_too_many.err|||3 B|Scores too many
-5|scores_too_few.in|dash|scores_too_few.err|||4 B|Scores too few
-0|scores_status_update.in|dash|scores_status_update.err|||4 B|Scores status update
+0|scores_valid.in|dash|scores_valid.out|||4 B|Scores 1 2 3 4
+5|scores_empty.in|dash|scores_empty.out|||4 B|Scores<space>
+5|scores_space.in|dash|scores_space.out|||4 B|Scores 1 2 3 4<space>
+5|scores_too_high.in|dash|scores_too_high.out|||4 B|Scores 1 2 3 5
+5|scores_1111111.in|dash|scores_1111111.out|||4 B|Scores 1111111
+5|scores_valid.in|dash|scores_too_many.out|||3 B|Scores too many
+5|scores_too_few.in|dash|scores_too_few.out|||4 B|Scores too few
+0|scores_status_update.in|dash|scores_status_update.out|||4 B|Scores status update
 
 #Replace
-0|new_round.in|dash|new_round.err|||4 B|Replace Card
-5|new_round_card_0.in|dash|new_round_card_0.err|||4 B|Replace card 0
-5|new_round_card_x.in|dash|new_round_card_x.err|||4 B|Replace card x
-5|new_round_card_9.in|dash|new_round_card_9.err|||4 B|Replace card 9
-5|new_round_card_111.in|dash|new_round_card_111.err|||4 B|Replace card 111
-5|new_round_no_card.in|dash|new_round_no_card.err|||4 B|Replace card no card
+0|replace_1.in|dash|replace_1.out|||4 B|replace 1
+0|replace_8.in|dash|replace_8.out|||4 B|replace 8
+5|replace_0.in|dash|replace_0.out|||4 B|replace 0
+5|replace_9.in|dash|replace_9.out|||4 B|replace 9
+5|replace_x.in|dash|replace_x.out|||4 B|replace x
+5|replace_empty.in|dash|replace_empty.out|||4 B|replace empty
+5|replace_1_space.in|dash|replace_1_space.out|||4 B|replace 1<space>
+5|replace_11.in|dash|replace_11.out|||4 B|replace 11
 
-#This Happened
-#4|thishappened_no_effect.in|dash|thishappened_no_effect.err|||2 B|1 turn
-#5|thishappened_an_effect.in|dash|thishappened_an_effect.err|||3 C|2 turns
-
-#Your Turn
-#5|yourturn_567.in|yourturn_567.out|yourturn_567.err|||2 B| 7,5 and 6 test
+5|long_msg_no_nl.in|dash|long_msg.out|||3 A|Long msg no nl
+5|long_msg.in|dash|long_msg.out|||3 A|Long msg

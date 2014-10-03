@@ -18,3 +18,136 @@
 3|empty|empty|invalid_deck.err|||TESTD/invalid_char.deck x x|Deck with invalid char
 3|empty|empty|invalid_deck.err|||TESTD/imbalanced.deck x x|Deck with wrong card distribution
 4|empty|empty|subprocess.err|||TESTD/valid.deck x x|Valid deck file
+
+#Executable
+4|empty|empty|subprocess.err|||TESTD/valid.deck x x|Invalid exec 1
+4|empty|empty|subprocess.err|||TESTD/valid.deck ./player x|Invalid exec 2
+4|empty|empty|subprocess.err|||TESTD/valid.deck ./player ./player x|Invalid exec 3
+4|empty|empty|subprocess.err|||TESTD/valid.deck ./player ./player ./player x|Invalid exec 4
+
+#Edge cases
+#Multiple round winners
+0|empty|d21_3pl.out|d21_3pl.err|||TESTD/d21.deck ./player ./player ./player|Multiple match winners
+#All players protected guessing for all cards with a target
+0|empty|d22_3pl.out|d22_3pl.err|||TESTD/d22.deck ./player ./player ./player|All protected, play 5 target self
+0|empty|d23_3pl.out|d23_3pl.err|||TESTD/d23.deck ./player ./player ./player|All protected, play 1 target no one
+0|empty|d24_3pl.out|d24_3pl.err|||TESTD/d24.deck ./player ./player ./player|All protected, play 3 target no one
+0|empty|d25_3pl.out|d25_3pl.err|||TESTD/d25.deck ./player ./player ./player|All protected, play 6 target no one
+#Playing a 5 at end of game, drawing first card from deck
+0|empty|d26_2pl.out|d26_2pl.err|||TESTD/d26.deck ./player ./player|Last card played is 5, draw initially discarded card
+#Play 5 force discard of 8
+0|empty|d27_2pl.out|d27_2pl.err|||TESTD/d27.deck ./player ./player|Play 5 force discard of 8
+0|empty|d28_2pl.out|d28_2pl.err|||TESTD/d28.deck ./player ./player|Play 5 force self discard of 8
+
+#Misbehaving player
+4|empty|empty|subprocess.err|||TESTD/valid.deck MOCK{xy\\nz} ./player|No dash from player
+#Early exit
+6|empty|early_exit.out|invalid_message.err|||TESTD/valid.deck ./player ./player ./player MOCK{-y\\nz}|Player exited early
+#Illegal move, card not in hand
+6|empty|empty|invalid_message.err|||TESTD/valid.deck MOCK{-8--\\n} ./player|Invalid move, card not in hand
+6|empty|empty|invalid_message.err|||TESTD/valid.deck MOCK{-2C8\\n} ./player|Invalid move, card target and guess when not needed
+#Illegal move, guess without target
+#Illegal move, target when target not required
+#Illegal move, guess when guess not required
+6|empty|empty|invalid_message.err|||TESTD/valid.deck MOCK{-2xx\\n} ./player|Invalid move 2xx
+6|empty|empty|invalid_message.err|||TESTD/valid.deck MOCK{-2-x\\n} ./player|Invalid move 2-x
+6|empty|empty|invalid_message.err|||TESTD/valid.deck MOCK{-2x-\\n} ./player|Invalid move 2x-
+#Illegal move, target protected player
+6|empty|play5_protected_error.out|invalid_message.err|||TESTD/d22.deck ./player ./player MOCK{-5A-\\n}|All protected, play 5 target protected A
+6|empty|play5_protected_error.out|invalid_message.err|||TESTD/d22.deck ./player ./player MOCK{-5B-\\n}|All protected, play 5 target protected B
+6|empty|play5_protected_error.out|invalid_message.err|||TESTD/d22.deck ./player ./player MOCK{-5--\\n}|All protected, play 5 target no one
+6|empty|play1_error.out|invalid_message.err|||TESTD/d23.deck ./player ./player MOCK{-1C8\\n}|All protected, play 1 target self error
+6|empty|play1_error.out|invalid_message.err|||TESTD/d23.deck ./player ./player MOCK{-1A8\\n}|All protected, play 1 target A error
+6|empty|play1_error.out|invalid_message.err|||TESTD/d23.deck ./player ./player MOCK{-1B8\\n}|All protected, play 1 target B error
+6|empty|play1_error.out|invalid_message.err|||TESTD/d25.deck ./player ./player MOCK{-6C8\\n}|All protected, play 6 target self error
+6|empty|play1_error.out|invalid_message.err|||TESTD/d25.deck ./player ./player MOCK{-6A8\\n}|All protected, play 6 target A error
+6|empty|play1_error.out|invalid_message.err|||TESTD/d25.deck ./player ./player MOCK{-6B8\\n}|All protected, play 6 target B error
+#Illegal move, 5 or 6 when holding 7
+6|empty|empty|invalid_message.err|||TESTD/draw67.deck MOCK{-6--\\n} ./player|Play 6 when holding 7 error
+6|empty|empty|invalid_message.err|||TESTD/draw57.deck MOCK{-5--\\n} ./player|Play 5 when holding 7 error
+#Illegal move, no targets when target available
+6|empty|empty|invalid_message.err|||TESTD/draw51.deck MOCK{-1--\\n} ./player|Play 1 no target when available error
+6|empty|empty|invalid_message.err|||TESTD/draw51.deck MOCK{-1-3\\n} ./player|Play 1 guess w no target
+6|empty|empty|invalid_message.err|||TESTD/draw51.deck MOCK{-1B-\\n} ./player|Play 1 target w no guess
+6|empty|empty|invalid_message.err|||TESTD/draw51.deck MOCK{-1xx\\n} ./player|Play 1xx
+6|empty|empty|invalid_message.err|||TESTD/draw51.deck MOCK{-1A3\\n} ./player|Play 1 target self
+6|empty|empty|invalid_message.err|||TESTD/draw51.deck MOCK{-1x3\\n} ./player|Play 1 invalid target
+6|empty|empty|invalid_message.err|||TESTD/draw51.deck MOCK{-5--\\n} ./player|Play 5 no target when available error
+6|empty|empty|invalid_message.err|||TESTD/draw51.deck MOCK{-5-3\\n} ./player|Play 5 guess w no target
+6|empty|empty|invalid_message.err|||TESTD/draw51.deck MOCK{-5Bx\\n} ./player|Play 5 target w invalid guess
+6|empty|empty|invalid_message.err|||TESTD/draw51.deck MOCK{-5xx\\n} ./player|Play 5xx
+6|empty|empty|invalid_message.err|||TESTD/draw51.deck MOCK{-5A3\\n} ./player|Play 5 with guess
+6|empty|empty|invalid_message.err|||TESTD/draw36.deck MOCK{-3--\\n} ./player|Play 3 no target when available error
+6|empty|empty|invalid_message.err|||TESTD/draw36.deck MOCK{-3-3\\n} ./player|Play 3 guess w no target
+6|empty|empty|invalid_message.err|||TESTD/draw36.deck MOCK{-3xx\\n} ./player|Play 3xx
+6|empty|empty|invalid_message.err|||TESTD/draw36.deck MOCK{-3A-\\n} ./player|Play 3 target self
+6|empty|empty|invalid_message.err|||TESTD/draw36.deck MOCK{-3x-\\n} ./player|Play 3 invalid target
+6|empty|empty|invalid_message.err|||TESTD/draw36.deck MOCK{-6--\\n} ./player|Play 6 no target when available error
+6|empty|empty|invalid_message.err|||TESTD/draw36.deck MOCK{-6-3\\n} ./player|Play 6 guess w no target
+6|empty|empty|invalid_message.err|||TESTD/draw36.deck MOCK{-6xx\\n} ./player|Play 6xx
+6|empty|empty|invalid_message.err|||TESTD/draw36.deck MOCK{-6A-\\n} ./player|Play 6 target self
+6|empty|empty|invalid_message.err|||TESTD/draw36.deck MOCK{-6x-\\n} ./player|Play 6 invalid target
+
+#Generated tests
+0|empty|d01_2pl.out|d01_2pl.err|||TESTD/d01.deck ./player ./player|Generated test for d01.deck, 2 players
+0|empty|d01_3pl.out|d01_3pl.err|||TESTD/d01.deck ./player ./player ./player|Generated test for d01.deck, 3 players
+0|empty|d01_4pl.out|d01_4pl.err|||TESTD/d01.deck ./player ./player ./player ./player|Generated test for d01.deck, 4 players
+0|empty|d02_2pl.out|d02_2pl.err|||TESTD/d02.deck ./player ./player|Generated test for d02.deck, 2 players
+0|empty|d02_3pl.out|d02_3pl.err|||TESTD/d02.deck ./player ./player ./player|Generated test for d02.deck, 3 players
+0|empty|d02_4pl.out|d02_4pl.err|||TESTD/d02.deck ./player ./player ./player ./player|Generated test for d02.deck, 4 players
+0|empty|d03_2pl.out|d03_2pl.err|||TESTD/d03.deck ./player ./player|Generated test for d03.deck, 2 players
+0|empty|d03_3pl.out|d03_3pl.err|||TESTD/d03.deck ./player ./player ./player|Generated test for d03.deck, 3 players
+0|empty|d03_4pl.out|d03_4pl.err|||TESTD/d03.deck ./player ./player ./player ./player|Generated test for d03.deck, 4 players
+0|empty|d04_2pl.out|d04_2pl.err|||TESTD/d04.deck ./player ./player|Generated test for d04.deck, 2 players
+0|empty|d04_3pl.out|d04_3pl.err|||TESTD/d04.deck ./player ./player ./player|Generated test for d04.deck, 3 players
+0|empty|d04_4pl.out|d04_4pl.err|||TESTD/d04.deck ./player ./player ./player ./player|Generated test for d04.deck, 4 players
+0|empty|d05_2pl.out|d05_2pl.err|||TESTD/d05.deck ./player ./player|Generated test for d05.deck, 2 players
+0|empty|d05_3pl.out|d05_3pl.err|||TESTD/d05.deck ./player ./player ./player|Generated test for d05.deck, 3 players
+0|empty|d05_4pl.out|d05_4pl.err|||TESTD/d05.deck ./player ./player ./player ./player|Generated test for d05.deck, 4 players
+0|empty|d06_2pl.out|d06_2pl.err|||TESTD/d06.deck ./player ./player|Generated test for d06.deck, 2 players
+0|empty|d06_3pl.out|d06_3pl.err|||TESTD/d06.deck ./player ./player ./player|Generated test for d06.deck, 3 players
+0|empty|d06_4pl.out|d06_4pl.err|||TESTD/d06.deck ./player ./player ./player ./player|Generated test for d06.deck, 4 players
+0|empty|d07_2pl.out|d07_2pl.err|||TESTD/d07.deck ./player ./player|Generated test for d07.deck, 2 players
+0|empty|d07_3pl.out|d07_3pl.err|||TESTD/d07.deck ./player ./player ./player|Generated test for d07.deck, 3 players
+0|empty|d07_4pl.out|d07_4pl.err|||TESTD/d07.deck ./player ./player ./player ./player|Generated test for d07.deck, 4 players
+0|empty|d08_2pl.out|d08_2pl.err|||TESTD/d08.deck ./player ./player|Generated test for d08.deck, 2 players
+0|empty|d08_3pl.out|d08_3pl.err|||TESTD/d08.deck ./player ./player ./player|Generated test for d08.deck, 3 players
+0|empty|d08_4pl.out|d08_4pl.err|||TESTD/d08.deck ./player ./player ./player ./player|Generated test for d08.deck, 4 players
+0|empty|d09_2pl.out|d09_2pl.err|||TESTD/d09.deck ./player ./player|Generated test for d09.deck, 2 players
+0|empty|d09_3pl.out|d09_3pl.err|||TESTD/d09.deck ./player ./player ./player|Generated test for d09.deck, 3 players
+0|empty|d09_4pl.out|d09_4pl.err|||TESTD/d09.deck ./player ./player ./player ./player|Generated test for d09.deck, 4 players
+0|empty|d10_2pl.out|d10_2pl.err|||TESTD/d10.deck ./player ./player|Generated test for d10.deck, 2 players
+0|empty|d10_3pl.out|d10_3pl.err|||TESTD/d10.deck ./player ./player ./player|Generated test for d10.deck, 3 players
+0|empty|d10_4pl.out|d10_4pl.err|||TESTD/d10.deck ./player ./player ./player ./player|Generated test for d10.deck, 4 players
+0|empty|d11_2pl.out|d11_2pl.err|||TESTD/d11.deck ./player ./player|Generated test for d11.deck, 2 players
+0|empty|d11_3pl.out|d11_3pl.err|||TESTD/d11.deck ./player ./player ./player|Generated test for d11.deck, 3 players
+0|empty|d11_4pl.out|d11_4pl.err|||TESTD/d11.deck ./player ./player ./player ./player|Generated test for d11.deck, 4 players
+0|empty|d12_2pl.out|d12_2pl.err|||TESTD/d12.deck ./player ./player|Generated test for d12.deck, 2 players
+0|empty|d12_3pl.out|d12_3pl.err|||TESTD/d12.deck ./player ./player ./player|Generated test for d12.deck, 3 players
+0|empty|d12_4pl.out|d12_4pl.err|||TESTD/d12.deck ./player ./player ./player ./player|Generated test for d12.deck, 4 players
+0|empty|d13_2pl.out|d13_2pl.err|||TESTD/d13.deck ./player ./player|Generated test for d13.deck, 2 players
+0|empty|d13_3pl.out|d13_3pl.err|||TESTD/d13.deck ./player ./player ./player|Generated test for d13.deck, 3 players
+0|empty|d13_4pl.out|d13_4pl.err|||TESTD/d13.deck ./player ./player ./player ./player|Generated test for d13.deck, 4 players
+0|empty|d14_2pl.out|d14_2pl.err|||TESTD/d14.deck ./player ./player|Generated test for d14.deck, 2 players
+0|empty|d14_3pl.out|d14_3pl.err|||TESTD/d14.deck ./player ./player ./player|Generated test for d14.deck, 3 players
+0|empty|d14_4pl.out|d14_4pl.err|||TESTD/d14.deck ./player ./player ./player ./player|Generated test for d14.deck, 4 players
+0|empty|d15_2pl.out|d15_2pl.err|||TESTD/d15.deck ./player ./player|Generated test for d15.deck, 2 players
+0|empty|d15_3pl.out|d15_3pl.err|||TESTD/d15.deck ./player ./player ./player|Generated test for d15.deck, 3 players
+0|empty|d15_4pl.out|d15_4pl.err|||TESTD/d15.deck ./player ./player ./player ./player|Generated test for d15.deck, 4 players
+0|empty|d16_2pl.out|d16_2pl.err|||TESTD/d16.deck ./player ./player|Generated test for d16.deck, 2 players
+0|empty|d16_3pl.out|d16_3pl.err|||TESTD/d16.deck ./player ./player ./player|Generated test for d16.deck, 3 players
+0|empty|d16_4pl.out|d16_4pl.err|||TESTD/d16.deck ./player ./player ./player ./player|Generated test for d16.deck, 4 players
+0|empty|d17_2pl.out|d17_2pl.err|||TESTD/d17.deck ./player ./player|Generated test for d17.deck, 2 players
+0|empty|d17_3pl.out|d17_3pl.err|||TESTD/d17.deck ./player ./player ./player|Generated test for d17.deck, 3 players
+0|empty|d17_4pl.out|d17_4pl.err|||TESTD/d17.deck ./player ./player ./player ./player|Generated test for d17.deck, 4 players
+0|empty|d18_2pl.out|d18_2pl.err|||TESTD/d18.deck ./player ./player|Generated test for d18.deck, 2 players
+0|empty|d18_3pl.out|d18_3pl.err|||TESTD/d18.deck ./player ./player ./player|Generated test for d18.deck, 3 players
+0|empty|d18_4pl.out|d18_4pl.err|||TESTD/d18.deck ./player ./player ./player ./player|Generated test for d18.deck, 4 players
+0|empty|d19_2pl.out|d19_2pl.err|||TESTD/d19.deck ./player ./player|Generated test for d19.deck, 2 players
+0|empty|d19_3pl.out|d19_3pl.err|||TESTD/d19.deck ./player ./player ./player|Generated test for d19.deck, 3 players
+0|empty|d19_4pl.out|d19_4pl.err|||TESTD/d19.deck ./player ./player ./player ./player|Generated test for d19.deck, 4 players
+0|empty|d20_2pl.out|d20_2pl.err|||TESTD/d20.deck ./player ./player|Generated test for d20.deck, 2 players
+0|empty|d20_3pl.out|d20_3pl.err|||TESTD/d20.deck ./player ./player ./player|Generated test for d20.deck, 3 players
+0|empty|d20_4pl.out|d20_4pl.err|||TESTD/d20.deck ./player ./player ./player ./player|Generated test for d20.deck, 4 players
+0|empty|d21_2pl.out|d21_2pl.err|||TESTD/d21.deck ./player ./player|Generated test for d21.deck, 2 players
+0|empty|d21_4pl.out|d21_4pl.err|||TESTD/d21.deck ./player ./player ./player ./player|Generated test for d21.deck, 4 players

@@ -1,0 +1,50 @@
+# retval|input|expected_output|expected_err|||args
+
+# This is the public batch
+1|empty|empty|usage.err|||
+1|empty|empty|usage.err|||x y
+
+2|empty|empty|invdim.err|||10 -5 tests/empty
+2|empty|empty|invdim.err|||5 0 tests/empty
+
+
+3|empty|empty|invfile.err|||3 3 tests/notthere
+
+4|empty|empty|contents.err|||3 3 tests/empty
+4|empty|empty|contents.err|||3 3 tests/missingcol.map
+4|empty|empty|contents.err|||4 5 tests/longlines.map
+#
+
+0|empty|h2empty.out|eoinput.err|||4 6 tests/h2.map
+0|empty|h3empty.out|eoinput.err|||4 10 tests/h3.map
+
+#Save grid 
+0|s1.in|s1.out|serr.err|s1.sav||5 5 tests/h1.map
+0|s2.in|s2.out|serr.err|s2.sav||5 5 tests/h1.map
+
+
+#Reject illegal moves on the initial grid
+0|h0.in|h0.out|eoinput.err|||3 5 tests/h0.map
+
+
+#correctly process a single move - removal from top line
+0|00.in|h2.out|eoinput.err|||4 6 tests/h2.map
+
+
+#correctly process a single move - whole right most column
+0|h5first.in|h5first.out|eoinput.err|||3 3 tests/h5.map
+
+
+#detect no legal moves
+0|empty|nomove.out|empty|||2 4 tests/nomove.map
+
+#Complete games
+#all horizontal no gaps
+
+0|h1i1|h1i1.out|empty|||5 5 tests/h1.map
+
+#all vertical
+0|h5.in|h5.out|empty|||3 3 tests/h5.map
+
+#misc
+0|00.in|00.out|empty|||4 59 tests/a.map

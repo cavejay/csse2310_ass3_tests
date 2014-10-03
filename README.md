@@ -5,14 +5,7 @@ This is a collection of student created tests for Assignment 3 of CSSE2310 Semes
 
 Please feel free to collaborate and submit a pull request if you add your own tests, if you think a test is incorrect or the spec has been misinterpreted please raise an issue [here.](https://github.com/timdrew/csse2310_ass3_tests/issues)
 
-No tests currently exist for the hub section of the assignment, these will be added when I (or others) start that component.
-
-Setup:
-----------
-
-To setup the tests into moss run the following:
-
-__git__ clone  &lt;repo-URL&#62;  &lt;folder-to-put-it-in&#62;
+Tests for the hub including and scripts for the autogeneration of test cases have now been added.
 
 Usage:
 -----------
@@ -30,6 +23,7 @@ __name:__ The name of the group of tests you with to run e.g. "player" or "hub",
 __Sample usage:__
 
     my_tests/tscript.sh ./player my_tests player
+    my_tests/tscript.sh ./hub my_tests hub
 
 Disclaimer:
 -------------
